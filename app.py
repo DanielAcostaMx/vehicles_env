@@ -6,7 +6,7 @@ car_data = pd.read_csv('vehicles_us.csv')
 
 st.header("Análisis de datos de venta de vehículos")
 
-hist_button = st.button('Construir histograma')
+show_hist = st.checkbox('Mostrar histograma')
 
 if hist_button:
     st.write(
@@ -14,14 +14,14 @@ if hist_button:
     fig = px.histogram(car_data, x="odometer")
     st.plotly_chart(fig, use_container_width=True)
 
-scatter_button = st.button('Construir gráfico de dispersión')
+show_scatter = st.checkbox('Mostrar gráfico de dispersión')
 
 if scatter_button:
     st.write('Creación de un gráfico de dispersión para odómetro vs precio')
     fig = px.scatter(car_data, x="odometer", y="price")
     st.plotly_chart(fig, use_container_width=True)
 
-boxplot_button = st.button('Construir boxplot')
+show_boxplot = st.checkbox('Mostrar boxplot')
 
 if boxplot_button:
     st.write('Creación de una boxplot para comparar precio vs condición del vehículo')
